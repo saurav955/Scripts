@@ -1,6 +1,6 @@
-This repository contains scripts to ease up things and save your effort.
+This repository contains scripts to ease things up and save your effort.
 
-1) certexpiresindays.py
+1) certexpiresindays.py checks the number of days there are before the ssl certificate expires.
 
 Run it as:
 python certexpiresindays.py google.com
