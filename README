@@ -31,3 +31,20 @@ Create Table: CREATE TABLE `table_name` (
 
 Run it as:
 python html_to_mariadb_insertion.py   #make sure that the test.html is in the same directory.
+
+4) rblchecker.py checks a set of IPs with a set of RBLs for black listing. By default it takes it's input from two files containing list of IP and RBLs, but you can have the IP/RBL list included in script as shown in commented part.
+
+Run it as:
+python rblchecker.py  #make sure rbllist and iplist files are present in the same directory.
+
+Examples of iplist/rbllist
+#######cat iplist 
+11.160.116.103
+12.160.116.103
+13.160.116.103
+#######cat rbllist 
+0spam.fusionzero.com
+0spam-killlist.fusionzero.com
+ipbl.zeustracker.abuse.ch
+
+Note: iplist contains the list of ips in reversed order.
