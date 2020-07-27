@@ -1,5 +1,5 @@
 This repository contains scripts to ease things up and save your effort.
-
+==============================================================================================================
 1) certexpiresindays.py checks the number of days there are before the ssl certificate expires.
 
 Run it as:
@@ -9,7 +9,7 @@ python certexpiresindays.py facebook.com
 Change the port in the script if your website opens at some weird port.
 
 Use it as a nagios plugin to raise reminders or automate the new cert generation process based on it's output (number of days left).
-
+===============================================================================================================
 2) permissionchecker.py checks the permissions for files/directories at a particular path against a specified permission and prints the deviators. 
 
 Run it as:
@@ -17,7 +17,7 @@ python permissionchecker.py -p <path> -P <permissions> -t <type>
 python permissionchecker.py -p /home -P 0700 -t file/dir/both      #Default for type is "both"
 
 Use it for auditing purposes, I used it to check appropriate permissions in some specific locations.
-
+===============================================================================================================
 3) html_to_mariadb_insertion.py is used to parse html table and insert table rows to DB rows. I have provided a sample html file named test.html and I have shared the create table table_name output as well.
 
        Table: table_name
@@ -31,7 +31,7 @@ Create Table: CREATE TABLE `table_name` (
 
 Run it as:
 python html_to_mariadb_insertion.py   #make sure that the test.html is in the same directory.
-
+================================================================================================================
 4) rblchecker.py checks a set of IPs with a set of RBLs for black listing. By default it takes it's input from two files containing list of IP and RBLs, but you can have the IP/RBL list included in script as shown in commented part.
 
 Run it as:
@@ -48,3 +48,21 @@ Examples of iplist/rbllist
 ipbl.zeustracker.abuse.ch
 
 Note: iplist contains the list of ips in reversed order.
+=================================================================================================================
+5) attendance.py | This script is what I used as a backup for marking attendance in the Company’s DSR google sheet. 
+
+How it works:
+    1. You run it at a certain time of the day when your laptop is most probably on using a cron entry. 
+    2. It will copy the entries from the previous day and mark your attendance for the day.
+    3. You can choose to fill in the attendance for the day manually, in that case the script checks whether the attendance is marked for the day or not and only fills in the attendance in case there is no attendance.
+    4. I created it as a backup mechanism, in case I forget to mark my attendance for the day and that’s what it does best.
+
+Prerequisites:
+    1. You have to create a json key file for your company’s gmail account for authentication purpose. (this part you have google)
+    2. You must have the link to the google sheet.
+    3. You must know the name of the sub-sheet you want to update.
+    4. Basic knowledge of running a python script.
+
+Cron entry:
+0 17 * * 1,2,3,4,5,6 /usr/bin/python /home/saurav/attendance/script.py
+=================================================================================================================
